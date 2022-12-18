@@ -6,7 +6,6 @@
 tmp/
 .env
 bin/
-*.json
 .idea/httpRequests/*
 node_modules
 
@@ -98,3 +97,4 @@ fabric.properties
 # vendor/
 
 dist/
+/database/data.db

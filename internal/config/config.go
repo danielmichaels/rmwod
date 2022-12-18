@@ -23,7 +23,6 @@ type limiter struct {
 type dbConf struct {
 	DbName                    string        `env:"DATABASE_URL,default=database/data.db"`
 	DatabaseConnectionContext time.Duration `env:"DATABASE_CONNECTION_CONTEXT,default=15s"`
-	// todo: litestream setup here
 }
 type serverConf struct {
 	Port         int           `env:"SERVER_PORT,default=9898"`
@@ -34,24 +33,11 @@ type serverConf struct {
 type appConf struct {
 	LogLevel   string `env:"LOG_LEVEL,default=info"`
 	LogConcise bool   `env:"LOG_CONCISE,default=true"`
-	LogJson    bool   `env:"LOG_JSON,default=false"`
+	LogJson    bool   `env:"LOG_JSON,default=true"`
 	LogCaller  bool   `env:"LOG_CALLER,default=false"`
 }
 type secretKeys struct {
-	// SMTP
-	SmtpHost     string `env:"SMTP_HOST"`
-	SmtpPort     int    `env:"SMTP_PORT"`
-	SmtpUsername string `env:"SMTP_USERNAME"`
-	SmtpPassword string `env:"SMTP_PASSWORD"`
-	SmtpSender   string `env:"STMP_SENDER,default=rmwod Accounts<no-reply@rmwod.com>"`
-	// Stripe
-	StripeSecretKey      string `env:"STRIPE_SK"`
-	StripePublishableKey string `env:"STRIPE_PK"`
-	StripeWebhookSecret  string `env:"STRIPE_WH"`
-	// Sentry
-	SentryDSN        string `env:"SENTRY_DSN"`
-	SentryDebug      bool   `env:"SENTRY_DEBUG,default=false"`
-	SentryProduction string `env:"SENTRY_PRODUCTION,default=production"`
+	Plausible string `env:"PLAUSIBLE_SITE,default=randommwod.com"`
 }
 
 // AppConfig Setup and install the applications' configuration environment variables

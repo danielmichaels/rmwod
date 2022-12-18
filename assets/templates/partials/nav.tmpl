@@ -1,17 +1,8 @@
-
 {{define "partial:nav"}}
-<nav>
-    {{if .AuthenticatedUser}}
-    <form method="POST" action="/logout">
-            <input type='hidden' name='csrf_token' value='{{.CSRFToken}}'>
-            {{.AuthenticatedUser.Email}}
-            &middot;
-            <button class="link">Logout</button>
-        </form>
-    {{else}}
-        <a href="/signup">Signup</a>
-        <a href="/login">Login</a>
-    {{end}}
-</nav>
+  <nav>
+    <div class="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-center lg:gap-x-12">
+      <p class="font-semibold text-gray-900 hover:text-gray-900 mb-5">Random MWOD</p>
+    </div>
+  </nav>
 {{end}}
 

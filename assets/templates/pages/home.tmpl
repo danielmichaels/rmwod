@@ -1,7 +1,21 @@
-
-{{define "page:title"}}Example page{{end}}
+{{define "page:title"}} Random Mobility Workout{{end}}
 
 {{define "page:main"}}
-<p>This is an example page.</p>
+    {{ with .Video }}
+      <header class="bg-white shadow-sm">
+        <div class="mx-auto max-w-7xl py-4 px-4 sm:px-6 lg:px-8">
+          <h1 class="text-lg font-semibold leading-6 text-gray-900">{{ .Title }}</h1>
+        </div>
+      </header>
+      <div class="aspect-w-16 aspect-h-9 border-4 border-blue-600">
+        <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/{{ .Url }}"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+      </div>
+      <p class="font-semibold text-gray-900 hover:text-gray-900 mb-5 text-center">
+        Refresh the page to get another random MWOD</p>
+    {{ end }}
 {{end}}
 

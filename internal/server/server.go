@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"github.com/danielmichaels/rmwod/internal/config"
+	"github.com/danielmichaels/rmwod/internal/database"
 	"github.com/rs/zerolog"
 	"net/http"
 	"os"
@@ -19,6 +20,7 @@ type Application struct {
 	Logger   zerolog.Logger
 	wg       sync.WaitGroup
 	RouteDoc bool
+	Db       *database.Queries
 }
 
 func (app *Application) Serve() error {

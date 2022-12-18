@@ -6,17 +6,22 @@
         <meta charset='utf-8'>
         <title>{{template "page:title" .}}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Random Mobility Workout of the Day says what it does on the cover. Random mobility workouts from YouTube by TheReadyState/MWOD and the excellent Dr Kelly Starret">
         {{block "page:meta" .}}{{end}}
+        {{ if .Plausible }}
+          <script defer data-domain="{{ .Plausible }}" src="https://plausible.io/js/plausible.js"></script>
+        {{ end }}
         <link rel='stylesheet' href='/static/css/theme.css?version={{.Version}}'>
         <script src="/static/js/bundle.js?version={{.Version}}" defer></script>
     </head>
     <body>
         <header>
-            <h1><a href="/">Example header</a></h1>
             {{template "partial:nav" .}}
         </header>
         <main>
+            <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             {{template "page:main" .}}
+            </div>
         </main>
         {{template "partial:footer" .}}
     </body>

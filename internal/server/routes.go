@@ -22,7 +22,7 @@ func (app *Application) routes() http.Handler {
 	fileServer := http.FileServer(http.FS(assets.EmbeddedFiles))
 	router.Handle("/static/*", fileServer)
 
-	router.Get("/status", app.status)
+	router.Get("/healthz", app.status)
 	router.Group(func(web chi.Router) {
 		web.Get("/", app.home)
 		// web routes
